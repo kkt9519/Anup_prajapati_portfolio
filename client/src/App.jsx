@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
+import CyberBackground from './components/CyberBackground';
 import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -17,7 +18,10 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen text-slate-900 dark:text-slate-100 bg-slate-50 dark:bg-navy-950 transition-colors duration-300">
+      <div className="relative min-h-screen text-slate-900 dark:text-slate-100 bg-slate-50 dark:bg-[#02040a] transition-colors duration-300">
+        {/* TCS HackQuest Season 11 Cybersecurity Background */}
+        <CyberBackground />
+
         {/* Custom Silky Cursor for Desktop */}
         <CustomCursor />
 
@@ -25,7 +29,7 @@ export default function App() {
         <Navbar onOpenResume={() => setIsResumeOpen(true)} />
 
         {/* Main Content Sections */}
-        <main id="main-content">
+        <main id="main-content" className="relative z-10">
           <Hero onOpenResume={() => setIsResumeOpen(true)} />
           <About />
           <Skills />

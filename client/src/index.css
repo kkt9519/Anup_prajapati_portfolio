@@ -76,6 +76,34 @@
     -webkit-text-fill-color: transparent;
   }
 
+  /* TCS HackQuest Season 11 Cyber Grid */
+  .cyber-grid {
+    background-size: 36px 36px, 180px 180px;
+    background-image:
+      linear-gradient(to right, rgba(0, 240, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 240, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(to right, rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(56, 189, 248, 0.07) 1px, transparent 1px);
+  }
+
+  /* Perspective Cyber Horizon / Floor Grid */
+  .cyber-grid-perspective {
+    position: absolute;
+    bottom: -15%;
+    left: -20%;
+    right: -20%;
+    height: 55%;
+    transform: perspective(450px) rotateX(65deg);
+    transform-origin: center bottom;
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, rgba(0, 240, 255, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 240, 255, 0.07) 1px, transparent 1px);
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 80%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 80%);
+    pointer-events: none;
+  }
+
   /* Grid background pattern */
   .bg-grid-pattern {
     background-size: 40px 40px;
@@ -90,6 +118,72 @@
       linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
   }
+}
+
+/* Scanning Cyber Beam */
+@keyframes cyber-scan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.35;
+  }
+  85% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.cyber-scan-beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 240, 255, 0.15) 20%, rgba(56, 189, 248, 0.75) 50%, rgba(0, 240, 255, 0.15) 80%, transparent 100%);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.45), 0 0 30px rgba(56, 189, 248, 0.25);
+  animation: cyber-scan 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+/* Circuit Board Pulse */
+@keyframes circuit-pulse {
+  0%, 100% {
+    stroke-dashoffset: 120;
+    opacity: 0.15;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 0.95;
+  }
+}
+
+.circuit-track {
+  stroke: rgba(0, 240, 255, 0.12);
+  stroke-width: 1.2;
+  fill: none;
+}
+
+.circuit-pulse {
+  stroke: #00f2fe;
+  stroke-width: 1.8;
+  stroke-dasharray: 25 95;
+  animation: circuit-pulse 7s ease-in-out infinite;
+}
+
+/* TCS HackQuest Cyber Background Integration — Keep sections transparent in dark mode */
+.dark section {
+  background-color: transparent !important;
+}
+
+.dark footer {
+  background-color: rgba(2, 4, 10, 0.85) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 /* Custom Cursor styling: strictly non-blocking */

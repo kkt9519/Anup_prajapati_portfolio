@@ -32,7 +32,7 @@ export default function Hero({ onOpenResume }) {
     <section
       id="home"
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden bg-grid-pattern dark:bg-grid-pattern"
+      className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden"
     >
       {/* Ambient background mesh spotlights */}
       <div
